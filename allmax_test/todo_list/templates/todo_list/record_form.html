@@ -1,0 +1,73 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+  {% if todos %}
+    <div class="row todo-header">
+      <div class="col-2 todo-header">
+        <h5>Priority</h5>
+      </div>
+      <div class="col-5 todo-header">
+        <h5>TODO (click to edit)</h5>
+      </div>
+    </div>
+    {% for todo in todos %}
+      <div class="row todo">
+        <div class="col-2">
+          <select>
+            <option value={{ choices.0.0 }} {% if todo.priority == choices.0.1 %} selected {% endif %}>{{ choices.0.1 }}</option>
+            <option value={{ choices.1.0 }} {% if todo.priority == choices.1.1 %} selected {% endif %}>{{ choices.1.1 }}</option>
+            <option value={{ choices.2.0 }} {% if todo.priority == choices.2.1 %} selected {% endif %}>{{ choices.2.1 }}</option>
+          </select>
+        </div>
+        <div class="col-5">
+          <span class="record-text editable" contenteditable="true">{{ todo.text }}</span>
+        </div>
+        <div class="col">
+          <button class="edit-btn btn-primary" data-csrf="{{ csrf_token }}" data-action="{% url 'update' pk=todo.pk %}">Save changes</button>
+        </div>
+        <div class="col">
+          <form action="{% url 'delete' pk=todo.pk %}" method="post">
+            {% csrf_token %}
+            <input class="btn-primary" type="submit" value="Delete" />
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+  <div class="row">
+    <div class="col">
+      <h5 class="empty-list">Nothing on the list yet! Add something below</h5>
+    </div>
+  </div>
+  {% endif %}
+<div class="row hr">
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+<form class="new-record" method="post">
+  {% csrf_token %}
+  <div class="row todo-new">
+    <div class="col-2 todo-new">
+      {{form.priority.label}}
+    </div>
+    <div class="col-2 todo-new">
+      {{form.priority}}
+    </div>
+  </div>
+  <div class="row todo-new">
+    <div class="col-2 todo-new">
+      {{form.text.label}}
+    </div>
+    <div class="col-2 todo-new">
+      {{form.text}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input class="btn-primary single-btn" type="submit" value="Add new">
+    </div>
+  </div>
+
+</form>
+{% endblock %}

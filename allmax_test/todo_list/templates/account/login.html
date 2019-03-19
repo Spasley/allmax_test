@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+<form method="post">
+  <div class="row todo-new">
+    <div class="col-2 todo-new">
+      {{form.login.label}}
+    </div>
+    <div class="col-2 todo-new">
+      {{form.login}}
+    </div>
+  </div>
+  <div class="row todo-new">
+    <div class="col-2 todo-new">
+      {{form.password.label}}
+    </div>
+    <div class="col-2 todo-new">
+      {{form.password}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p><input class="btn-primary single-btn" type="submit" value="Log In"></p>
+      <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+    </div>
+  </div>
+  {% csrf_token %}
+</form>
+{% endblock %}

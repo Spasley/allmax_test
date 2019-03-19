@@ -1,0 +1,73 @@
+html {
+    display: table;
+    margin: auto
+}
+
+p, h1 {
+    padding: 5px;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    width: 800px;
+}
+
+li {
+    padding: 5px;
+}
+
+.nav {
+    background-color: #c4dce8;
+    padding: 0;
+}
+
+form.new-record {
+    padding-top: 15px;
+    margin: 0;
+}
+
+.editable {
+    text-decoration: #5b80b2 underline dashed;
+    line-height: 1.3em;
+}
+
+.todo-header {
+    padding-top: 10px;
+    margin: 0;
+}
+
+.todo {
+    padding: 10px;
+    border-bottom: #609ab6 solid 1px;
+    line-height: 40px;
+    background-color: #c4dce8;
+}
+
+.todo-new {
+    margin: 0;
+    padding: 5px;
+}
+
+.single-btn {
+    margin-left: 5px;
+}
+
+.record-text {
+    line-height: 1em;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+div {
+    margin: auto;
+}
+
+.empty-list {
+    padding-top: 15px;
+}
+
+.error {
+    color: #CC3434;
+    margin-left: 50px;
+}
