@@ -13,8 +13,9 @@
     EMAIL_PWD - пароль для авторизации на почтовом сервере  
  4. Создать виртуальное окружение и установить зависимости (requirements.txt)
  5. Запустить миграции  
-  python manage.py makemigrations  
   python manage.py migrate  
  6. Запустить сервер  
   python manage.py runserver
  7. Открыть http://127.0.0.1/todo_list/app
+ 
+Протестировано в Google Chrome на десктопе
