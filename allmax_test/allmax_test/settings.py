@@ -85,7 +85,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('TODO_DB'),
         'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('PGPWD')
+        'PASSWORD': os.getenv('PGPWD'),
+        'HOST': 'localhost'
     }
 }
 
